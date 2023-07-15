@@ -71,11 +71,23 @@ pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all inst
 1. activate your virtual environment and check present working dir
 
 python -m pipenv shell
+
 pwd
 
-2. Create a new Django project and name it as mysite
+2. Create a Django project (This command create a mysite dir in current dir)
 
-django-admin startproject mysite .          # . Is for in current directory
+django-admin startproject mysite .         
+
+# Check contents of mysite
+
+$ ls -l mysite/
+total 10
+-rw-r--r-- 1 rohit 197121    0 Jul 15 10:02 __init__.py
+-rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 asgi.py    
+-rw-r--r-- 1 rohit 197121 3344 Jul 15 10:02 settings.py
+-rw-r--r-- 1 rohit 197121  784 Jul 15 10:02 urls.py    
+-rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 wsgi.py    
+
 
 
 
