@@ -100,7 +100,7 @@ mysite/urls.py: The URL declarations for this Django project; a “table of cont
 mysite/asgi.py: An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
 mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
 
-3. The development server (We can also create alias for below command)
+3. Run the development server (We can also create alias for below command)
 
 python manage.py runserver
 
@@ -117,7 +117,7 @@ Quit the server with CTRL-BREAK.
 
 python manage.py runserver 0.0.0.0:8000
 
-4. Migrate
+4. Migrate - To view changes, synchronize app with DB
 
 # Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
 
@@ -152,7 +152,7 @@ It analyzes the migration files to determine the changes they represent.
 It modifies the database schema to match the changes described in the migration files.
 It updates the migration history, marking the applied migrations as completed.
 
-# The development server
+# Run the development server
 
 python manage.py runserver 
 
@@ -228,8 +228,33 @@ INSTALLED_APPS = [
     "feed",
 ]
 
-# Now run startapp command
-python manage.py startapp feedback
+# Migrate - To view changes, synchronize app with DB 
+
+python manage.py migrate
+
+# Rum the development server
+
+python manage runserver
 
 
+$ python manage.py startapp feed
+CommandError: 'feed' conflicts with the name of an existing Python module and cannot be used as an app name. Please try another name.
+
+# Incase we get conflicts error then follow below steps to remove app.
+
+Make sure your Django development server is not running. If it is running, you can stop it by pressing Ctrl + C in the command prompt or terminal where it's running.
+Locate the root directory of your Django project. This is the directory that contains the manage.py file.
+Open a command prompt or terminal window and navigate to the root directory of your Django project.
+Once you are in the project's root directory, execute the following command:
+
+python manage.py makemigrations --empty feed
+
+Next, run the migration command to apply the empty migration:
+
+python manage.py migrate
+
+This will remove the database tables associated with the "feed" app from the database.
+After removing the database tables, you can delete the "feed" app directory from your project manually.
+
+Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your project's settings.py file. Open the settings.py file and locate the INSTALLED_APPS list. 
 
