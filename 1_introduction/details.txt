@@ -213,8 +213,23 @@ static/: This directory is used to store static files such as CSS, JavaScript, a
 
 migrations/: This directory contains database migration files. When you make changes to your models, Django generates migration files that define how to modify the database schema. These files are automatically created and managed by Django's migration framework.
 
+# Activate feed app
 
+Go to mysite (project) dir and in settings.py and look for INSTALLED_APPS section
+. This is basically a list , add feed in last like below.
 
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "feed",
+]
+
+# Now run startapp command
+python manage.py startapp feedback
 
 
 
