@@ -78,7 +78,12 @@ pwd
 
 django-admin startproject mysite .         
 
-# Check contents of mysite
+# mysite dir and manage.py file
+
+The outer mysite/ root directory is a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
+manage.py: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in django-admin and manage.py.
+
+# mysite dir
 
 $ ls -l mysite/
 total 10
@@ -87,6 +92,126 @@ total 10
 -rw-r--r-- 1 rohit 197121 3344 Jul 15 10:02 settings.py
 -rw-r--r-- 1 rohit 197121  784 Jul 15 10:02 urls.py    
 -rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 wsgi.py    
+
+The inner mysite/ directory is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
+mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. If you’re a Python beginner, read more about packages in the official Python docs.
+mysite/settings.py: Settings/configuration for this Django project. Django settings will tell you all about how settings work.
+mysite/urls.py: The URL declarations for this Django project; a “table of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
+mysite/asgi.py: An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
+mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
+
+3. The development server (We can also create alias for below command)
+
+python manage.py runserver
+
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 15, 2023 - 10:23:59
+Django version 4.2.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/ 
+Quit the server with CTRL-BREAK.
+
+# The production server . If you want to specify a different IP address or port number, you can pass them as arguments to the runserver command
+
+python manage.py runserver 0.0.0.0:8000
+
+4. Migrate
+
+# Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
+
+python manage.py migrate
+
+Operations to perform:
+Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK     
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK 
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK     
+  Applying auth.0004_alter_user_username_opts... OK   
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK     
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK    
+  Applying auth.0011_update_proxy_permissions... OK     
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+# Running python manage.py migrate performs the following steps:
+
+It checks for any new migration files that haven't been applied yet.
+It analyzes the migration files to determine the changes they represent.
+It modifies the database schema to match the changes described in the migration files.
+It updates the migration history, marking the applied migrations as completed.
+
+# The development server
+
+python manage.py runserver 
+
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+July 15, 2023 - 10:23:59
+Django version 4.2.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/ 
+Quit the server with CTRL-BREAK.
+
+5. Django Admin page
+
+# To access Django admin page from your browser 
+
+http://127.0.0.1:8000/admin/
+
+# First we need to create username and password from command line
+
+python manage.py createsuperuser
+
+$ python manage.py createsuperuser
+Username (leave blank to use 'rohit'): nixmin
+Email address: rohitsavana18@gmail.com
+Password:
+Password (again):
+
+6. Creating a new app
+
+python manage.py startapp feed
+
+# feed dir 
+
+$ ls -l feed/
+total 5
+-rw-r--r-- 1 rohit 197121   0 Jul 15 10:55 __init__.py
+-rw-r--r-- 1 rohit 197121  66 Jul 15 10:55 admin.py   
+-rw-r--r-- 1 rohit 197121 146 Jul 15 10:55 apps.py    
+drwxr-xr-x 1 rohit 197121   0 Jul 15 10:55 migrations 
+-rw-r--r-- 1 rohit 197121  60 Jul 15 10:55 models.py  
+-rw-r--r-- 1 rohit 197121  63 Jul 15 10:55 tests.py   
+-rw-r--r-- 1 rohit 197121  66 Jul 15 10:55 views.py  
+
+models.py: This file defines the data models for your application. Models are Python classes that represent database tables and encapsulate the logic for interacting with the database. You define fields, relationships, and behaviors of your data in this file using Django's model field types and options.
+
+views.py: This file contains the views of your application. Views are Python functions or classes that handle HTTP requests and generate responses. They define the logic for processing user requests, retrieving data from models, and rendering templates or returning JSON responses.
+
+urls.py: This file defines the URL routing for your application. It maps URLs to the appropriate views that should handle them. You specify URL patterns and their corresponding view functions or classes in this file, allowing Django to determine which view to invoke based on the requested URL.
+
+forms.py: This file is used for defining Django forms. Forms are used to handle user input and perform validation. By defining forms, you can generate HTML forms automatically from your model definitions or create custom forms with specific fields and validation logic.
+
+admin.py: This file is used to register your models with the Django admin interface. The admin interface provides a convenient way to manage and interact with the data in your models. In this file, you can customize the appearance and behavior of the admin site and define how your models are displayed and edited.
+
+templates/: This directory contains HTML templates used for rendering the views. Templates allow you to separate the presentation logic from the Python code. Django uses a templating engine to fill in dynamic data and generate HTML responses. The directory structure within the templates/ directory usually mirrors the app structure.
+
+static/: This directory is used to store static files such as CSS, JavaScript, and image files. Django serves these files directly to the client without processing them. The structure within the static/ directory can also mirror the app structure.
+
+migrations/: This directory contains database migration files. When you make changes to your models, Django generates migration files that define how to modify the database schema. These files are automatically created and managed by Django's migration framework.
 
 
 
