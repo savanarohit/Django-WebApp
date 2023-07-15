@@ -268,3 +268,61 @@ After removing the database tables, you can delete the "feed" app directory from
 
 Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your project's settings.py file. Open the settings.py file and locate the INSTALLED_APPS list. 
 
+7. Creating a Model for feed app
+
+Model - a model is a Python class that represents a database table. It encapsulates the fields (data attributes) and behaviors (methods) of the data you want to store and manipulate within the database. By defining the model, you can perform various operations such as creating, updating, deleting, and querying the data stored in the corresponding database table. Django's ORM provides a rich set of methods and query APIs to perform these operations, making it easier to work with databases without writing raw SQL queries.
+
+# Go to models.py file in feed app and in # Create your models section create a Class as Post as below. Basically it is a Table with two columns.
+
+# Create your models here.
+class Post(models.Model):
+    text = models.CharField(max_length=140, blank=False, null=False)
+
+
+# Once you save this file Django will automatically reload the development server.
+
+# Then run makemigrations command as below. It will create Tables with two columns in the database( SQLite by default)
+
+python manage.py makemigrations
+
+$ python manage.py makemigrations
+Migrations for 'feed':
+  feed\migrations\0001_initial.py
+    - Create model Post
+
+# This creates a 0001_initial.py in migrations dir of feed app
+
+# Now run migration command to add model (table) with two columns
+
+python manage.py migrate
+
+
+$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, feed, sessions
+Running migrations:
+  No migrations to apply.
+
+
+# Now rerun the development server
+
+python manage.py runserver
+
+# This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
+
+Go to admin.py file in feed app dir. In # Register your models here section add details as below with import too.
+
+from django.contrib import admin
+from .models import Post
+
+
+class PostAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Post, PostAdmin)
+
+
+
+
+
