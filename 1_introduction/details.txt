@@ -66,5 +66,18 @@ pipenv install --dev installs development dependencies.
 pipenv update updates all packages to their latest compatible versions.
 pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
 
+## Setting up Django
+
+1. activate your virtual environment and check present working dir
+
+python -m pipenv shell
+pwd
+
+2. Create a new Django project and name it as mysite
+
+django-admin startproject mysite .          # . Is for in current directory
+
+
+
 
 
