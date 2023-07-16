@@ -378,7 +378,7 @@ django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\admin\templates\home.htm
 django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\auth\templates\home.html
 
 
-9. Template - Creating a Template
+9. Template - Setting up Templates dir
 
 a template is a text file that defines the structure and presentation of a web page. It is a fundamental component of the Model-View-Controller (MVC) architectural pattern used by Django. Templates allow you to separate the design and layout of your web pages from the Python code that handles the application's logic. Django templates use a syntax called Django Template Language (DTL) or simply template tags. Template tags are enclosed in curly braces ({{ }}) or percent signs ({% %}) and allow you to insert dynamic content, perform logic, iterate over data, and include other templates.
 
@@ -408,7 +408,131 @@ Template filters: Filters allow you to modify the output of variables or apply f
 
 Inheritance and template inheritance: Templates can inherit from a base template and extend its content. This enables reusable templates and a modular approach to building web pages.
 
+# Setting up Templates dir for feed webapp
+
+Go to setting.py in mysite dir. Search for TEMPLATES section and update as below.
+
+TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [TEMPLATE_DIR],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+Also add import os at import section of the file in top. Then go back to page and check again you will see same error but this time dir is different.
+
+django.template.loaders.filesystem.Loader: django-webapp\1_introduction\templates\home.html (Source does not exist)
+django.template.loaders.app_directories.Loader: django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\admin\templates\home.html (Source does not exist)
+django.template.loaders.app_directories.Loader: django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\auth\templates\home.html (Source does not exist)
+
+Create a templates dir and in this add home.html file in this add h1 tag with Hello Django!. Now refresh the main page you will see Hello Django! 
+If after refresh it is not working then restart django server.
+
+# How to handle when we have multiple views
+
+Create a base.html file with html5 boilerplate and also create home.html page with no content in it.
+Now in home.html file add {% extends "base.html" %} to call base.html content.
 
 
+10. Template blocks
+
+template blocks are a feature that allows you to define sections of a template that can be overridden or extended by child templates. Template blocks are used in conjunction with template inheritance to create modular and reusable templates.
+
+Base Template (base.html):
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+        <h1>Welcome to my website!</h1>
+    {% endblock %}
+</body>
+</html>
+
+Child Template (child.html):
+
+{% extends 'base.html' %}
+
+{% block title %}
+    My Awesome Website
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to my awesome website!</h1>
+    <p>This website is amazing!</p>
+{% endblock %}
+
+In this example, the base.html template serves as the base template that defines the common structure of the web pages. It contains two template blocks: title and content. The content inside these blocks acts as a placeholder and will be replaced or extended by child templates.
+
+The child.html template extends the base.html template using the {% extends %} template tag. It then overrides the title and content blocks with its own content. When the child.html template is rendered, the content from the base.html template will be included, and the content of the blocks defined in the child template will replace the corresponding blocks in the base template.
+
+When the child template is rendered, the resulting HTML will be:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Awesome Website</title>
+</head>
+<body>
+    <h1>Welcome to my awesome website!</h1>
+    <p>This website is amazing!</p>
+</body>
+</html>
+
+Template blocks allow you to define sections of a template that can be customized and overridden in child templates. They provide a way to reuse common template code while allowing flexibility to modify or extend specific sections as needed. This modular approach to template design promotes code reuse, maintainability, and a clean separation of concerns.
 
 
+# Creating template block in base.html file. (title and body blocks)
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %} {% endblock %} </title>  
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script src="" async defer></script>
+        
+        {% block body %} {% endblock %}
+    
+    </body>
+</html>
+
+# Now first extends and then call both title and body block in home.html. blocks are like html tag - title , body etc.
+
+{% extends 'base.html' %}
+{% block title %} Title from home.html {% endblock %}
+{% block body  %}
+    <h2>
+    Stuff in here from home.html
+    </h2>
+{% endblock %}
+
+# We can also have a default in base.html file. If someone forget to call title block in home.html file.
+
+<title>{% block title %} Default title {% endblock %}</title>
+
+11. Custom page context 
+
+the page context refers to the data that is available to the template when it is rendered. By default, Django provides a context that includes variables and data from the view function or class. However, you can also customize the page context by adding additional data or modifying the existing context. Customizing the page context allows you to pass specific data to the template that is relevant to the current page or view. You can include any Python objects, such as variables, dictionaries, lists, querysets, or model instances, in the page context.
