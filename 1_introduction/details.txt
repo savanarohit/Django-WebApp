@@ -1,3 +1,16 @@
+## Django
+
+Django is a high-level Python web framework that follows the Model-View-Controller (MVC) architectural pattern. It provides a set of tools, libraries, and conventions that simplify the development of web applications. Django is known for its emphasis on simplicity, reusability, and the principle of "Don't Repeat Yourself" (DRY).
+
+The Model-View-Controller (MVC) pattern is a design pattern commonly used in web application development.
+
+1. Model: The model represents the data and the business logic of the application. It defines the structure of the data, handles data validation, and interacts with the database or any other data source. In Django, models are typically represented as Python classes that inherit from django.db.models.Model. They define the fields, relationships, and behavior of the data entities in the application.
+
+2. View: The view handles the presentation logic and user interaction. It retrieves data from the model and decides how to present it to the user. In Django, views are Python functions or methods that receive HTTP requests, process them, and return HTTP responses. Views can render HTML templates, handle form submissions, authenticate users, and perform other tasks related to generating the appropriate response for a given request.
+
+3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
+
+
 ## Creating Virtual Environments for Django using pipenv
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
@@ -66,7 +79,7 @@ pipenv install --dev installs development dependencies.
 pipenv update updates all packages to their latest compatible versions.
 pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
 
-## Setting up Django
+## Setting up Django for a feed webapp
 
 1. activate your virtual environment and check present working dir
 
@@ -181,7 +194,7 @@ Email address: rohitsavana18@gmail.com
 Password:
 Password (again):
 
-6. Creating a new app
+6. Creating a new webapp
 
 python manage.py startapp feed
 
@@ -322,9 +335,78 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(Post, PostAdmin)
 
 
+8. View - Create View in feed webapp
+
+a view is a Python function or method that receives a web request and returns a web response. Views determine what data to retrieve from the database, how to process it, and which template to use to render the response. A view function takes the incoming request as its argument and typically returns an instance of the HttpResponse class or one of its subclasses.
+
+# Create a urls.py file in feed webapp dir and add below contents.
+
+from django.urls import path
+from .views import HomePageView
+
+app_name = "feed"
+urlpatterns = [path("", HomePageView.as_view(), name="index")]
 
 
+# In views.py file add below contents
 
+from django.views.generic import TemplateView
+
+# Create your views here.
+class HomePageView(TemplateView):
+    template_name = "home.html"
+
+
+# Finally add below contents into mysite/urls.py file
+
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls import include
+
+from feed import urls as feed_urls
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("", include(feed_urls, namespace="feed")),
+
+
+# Go back to webpage and refresh it , you will an error - TemplateDoesNotExist at /home.html
+
+It looks for this Template in below dirs.
+
+django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\admin\templates\home.html
+django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\auth\templates\home.html
+
+
+9. Template - Creating a Template
+
+a template is a text file that defines the structure and presentation of a web page. It is a fundamental component of the Model-View-Controller (MVC) architectural pattern used by Django. Templates allow you to separate the design and layout of your web pages from the Python code that handles the application's logic. Django templates use a syntax called Django Template Language (DTL) or simply template tags. Template tags are enclosed in curly braces ({{ }}) or percent signs ({% %}) and allow you to insert dynamic content, perform logic, iterate over data, and include other templates.
+
+Here's a basic example of a Django template:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+    <h1>Hello, {{ name }}!</h1>
+    <p>Today is {{ date }}</p>
+</body>
+</html>
+
+
+In this example, the template includes HTML markup along with template tags. The {{ name }} and {{ date }} are template variables that will be replaced with actual values when the template is rendered. The rendering process takes place when a view function returns an HTTP response, and Django combines the template with the provided data.
+
+Django templates offer various features, including:
+
+Variables: You can insert variables into the template to display dynamic content. Variables are surrounded by double curly braces ({{ }}) and can be any valid Python expression.
+
+Template tags: Template tags are used for performing logic and flow control in templates. They are enclosed in percent signs ({% %}) and allow you to iterate over data, conditionally render blocks of content, and include other templates.
+
+Template filters: Filters allow you to modify the output of variables or apply formatting to data. Filters are used by chaining them with the pipe symbol (|) after a variable and provide additional functionality like date formatting, string manipulation, and more.
+
+Inheritance and template inheritance: Templates can inherit from a base template and extend its content. This enables reusable templates and a modular approach to building web pages.
 
 
 
