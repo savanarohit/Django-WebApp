@@ -10,7 +10,7 @@ The Model-View-Controller (MVC) pattern is a design pattern commonly used in web
 
 3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
 
-## Creating Virtual Environments for Django using pipenv 
+### Creating Virtual Environments for Django using pipenv 
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
 
@@ -76,9 +76,9 @@ For Windows
 
 7. Managing dependencies: Pipenv provides additional commands for managing dependencies. For example:
 
-pipenv install --dev installs development dependencies.
-pipenv update updates all packages to their latest compatible versions.
-pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
+    pipenv install --dev                    # installs development dependencies.
+    pipenv update                           # updates all packages to their latest compatible versions.
+    pipenv lock                             # generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
 
 Setting up Django for a feed webapp
 
