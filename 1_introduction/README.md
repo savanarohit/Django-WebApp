@@ -1,4 +1,4 @@
-# Django Web Framework
+# Django Web Framework Introduction
 
 Django is a high-level Python web framework that follows the Model-View-Controller (MVC) architectural pattern. It provides a set of tools, libraries, and conventions that simplify the development of web applications. Django is known for its emphasis on simplicity, reusability, and the principle of "Don't Repeat Yourself" (DRY).
 
@@ -10,64 +10,65 @@ The Model-View-Controller (MVC) pattern is a design pattern commonly used in web
 
 3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
 
-
 ## Creating Virtual Environments for Django using pipenv
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
 
 1. Installation: You can install Pipenv by running the following command:
 
-pip install pipenv
+    pip install pipenv
 
 2. Creating a new project: To start a new project with Pipenv, navigate to the project's directory using the terminal or command prompt and run the following command:
 
-pipenv --python 3.11
+    pipenv --python 3.11
 
-## For Windows (GitBash prompt) - This creates a new virtual environment for the project, using Python 3.11 (replace with your desired Python version).
+For Windows (GitBash prompt) - This creates a new virtual environment for the project, using Python 3.11 (replace with your desired Python version).
 
-python -m pipenv --python 3.11 
+    python -m pipenv --python 3.11 
 
-Creating a virtualenv for this project...
-Pipfile: E:\onedrive\Rohit\certificates\eduonix\2_web_development_django\Pipfile
-Using C:/Python311/python.exe (3.11.0) to create virtualenv...
-[    ] Creating virtual environment...created virtual environment CPython3.11.0.final.0-64 in 11799ms
-creator CPython3Windows(dest=C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC, clear=False, no_vcs_ignore=False, global=False)
-seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\rohit\AppData\Local\pypa\virtualenv)
-added seed packages: pip==23.1.2, setuptools==68.0.0, wheel==0.40.0
-activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+    Creating a virtualenv for this project...
+    Pipfile: E:\onedrive\Rohit\certificates\eduonix\2_web_development_django\Pipfile
+    Using C:/Python311/python.exe (3.11.0) to create virtualenv...
+    [    ] Creating virtual environment...created virtual environment CPython3.11.0.final.0-64 in 11799ms
+    creator CPython3Windows(dest=C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC, clear=False, no_vcs_ignore=False, global=False)
+    seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=C:\Users\rohit\AppData\Local\pypa\virtualenv)
+    added seed packages: pip==23.1.2, setuptools==68.0.0, wheel==0.40.0
+    activators BashActivator,BatchActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
 
-Successfully created virtual environment!
-Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
-Creating a Pipfile for this project...
+    Successfully created virtual environment!
+    Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
+    Creating a Pipfile for this project...
 
 3. Adding dependencies: To add a package dependency to your project, use the pipenv install command followed by the package name. For example, to install Django, run:
 
 pipenv install django     (This installs Django and automatically updates the Pipfile and Pipfile.lock files, which keep track of your project's dependencies.)
 
-## For Windows 
-python -m pipenv install django
+For Windows
 
-Installing django...
-Resolving django... 
-Adding django to Pipfile's [packages] ...
-Installation Succeeded
-Pipfile.lock not found, creating...
-Locking [packages] dependencies... 
-Building requirements...
-Resolving dependencies...
-Success!
-Locking [dev-packages] dependencies...
-Updated Pipfile.lock (59a064f055bfda3ad3323efe9a4c40d8b21d9cec899d72308e2abd62dbf0366f)!
-Installing dependencies from Pipfile.lock (f0366f)...
-To activate this project's virtualenv, run pipenv shell.
-Alternatively, run a command inside the virtualenv with pipenv run.
+    python -m pipenv install django
+
+    Installing django...
+    Resolving django... 
+    Adding django to Pipfile's [packages] ...
+    Installation Succeeded
+    Pipfile.lock not found, creating...
+    Locking [packages] dependencies... 
+    Building requirements...
+    Resolving dependencies...
+    Success!
+    Locking [dev-packages] dependencies...
+    Updated Pipfile.lock (59a064f055bfda3ad3323efe9a4c40d8b21d9cec899d72308e2abd62dbf0366f)!
+    Installing dependencies from Pipfile.lock (f0366f)...
+    To activate this project's virtualenv, run pipenv shell.
+    Alternatively, run a command inside the virtualenv with pipenv run.
 
 4. Activating the virtual environment: To activate the virtual environment and access the project's shell, run:
 
-pipenv shell    (This command activates the virtual environment and opens a new shell within it.)
+pipenv shell        (This command activates the virtual environment and opens a new shell within it)
 
-## For Windows 
-python -m pipenv shell
+For Windows 
+
+    python -m pipenv shell
 
 5. Running Python scripts: Once inside the Pipenv shell, you can run Python scripts or interact with the installed packages as you would in a regular Python environment.
 
@@ -83,132 +84,132 @@ pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all inst
 
 1. activate your virtual environment and check present working dir
 
-python -m pipenv shell
+    python -m pipenv shell
 
-pwd
+    pwd
 
 2. Create a Django project (This command create a mysite dir in current dir)
 
-django-admin startproject mysite .         
+    django-admin startproject mysite .         
 
 ## mysite dir and manage.py file
 
 The outer mysite/ root directory is a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
 manage.py: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in django-admin and manage.py.
 
-## mysite dir
+mysite dir
 
-$ ls -l mysite/
-total 10
--rw-r--r-- 1 rohit 197121    0 Jul 15 10:02 __init__.py
--rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 asgi.py    
--rw-r--r-- 1 rohit 197121 3344 Jul 15 10:02 settings.py
--rw-r--r-- 1 rohit 197121  784 Jul 15 10:02 urls.py    
--rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 wsgi.py    
+    $ ls -l mysite/
+    total 10
+    -rw-r--r-- 1 rohit 197121    0 Jul 15 10:02 __init__.py
+    -rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 asgi.py    
+    -rw-r--r-- 1 rohit 197121 3344 Jul 15 10:02 settings.py
+    -rw-r--r-- 1 rohit 197121  784 Jul 15 10:02 urls.py    
+    -rw-r--r-- 1 rohit 197121  405 Jul 15 10:02 wsgi.py    
 
-The inner mysite/ directory is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
-mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. If you’re a Python beginner, read more about packages in the official Python docs.
-mysite/settings.py: Settings/configuration for this Django project. Django settings will tell you all about how settings work.
-mysite/urls.py: The URL declarations for this Django project; a “table of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
-mysite/asgi.py: An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
-mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
+    The inner mysite/ directory is the actual Python package for your project. Its name is the Python package name you’ll need to use to import anything inside it (e.g. mysite.urls).
+    mysite/__init__.py: An empty file that tells Python that this directory should be considered a Python package. If you’re a Python beginner, read more about packages in the official Python docs.
+    mysite/settings.py: Settings/configuration for this Django project. Django settings will tell you all about how settings work.
+    mysite/urls.py: The URL declarations for this Django project; a “table of contents” of your Django-powered site. You can read more about URLs in URL dispatcher.
+    mysite/asgi.py: An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
+    mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
 
 3. Run the development server (We can also create alias for below command)
 
-python manage.py runserver
+    python manage.py runserver
 
-Watching for file changes with StatReloader
-Performing system checks...
+    Watching for file changes with StatReloader
+    Performing system checks...
 
-System check identified no issues (0 silenced).
-July 15, 2023 - 10:23:59
-Django version 4.2.3, using settings 'mysite.settings'
-Starting development server at http://127.0.0.1:8000/ 
-Quit the server with CTRL-BREAK.
+    System check identified no issues (0 silenced).
+    July 15, 2023 - 10:23:59
+    Django version 4.2.3, using settings 'mysite.settings'
+    Starting development server at http://127.0.0.1:8000/ 
+    Quit the server with CTRL-BREAK.
 
 ## The production server . If you want to specify a different IP address or port number, you can pass them as arguments to the runserver command
 
-python manage.py runserver 0.0.0.0:8000
+    python manage.py runserver 0.0.0.0:8000
 
 4. Migrate - To view changes, synchronize app with DB
 
-## Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
+Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
 
 python manage.py migrate
 
-Operations to perform:
-Apply all migrations: admin, auth, contenttypes, sessions
-Running migrations:
-Applying contenttypes.0001_initial... OK
-Applying auth.0001_initial... OK
-Applying admin.0001_initial... OK
-Applying admin.0002_logentry_remove_auto_add... OK     
-Applying admin.0003_logentry_add_action_flag_choices... OK
-Applying contenttypes.0002_remove_content_type_name... OK 
-Applying auth.0002_alter_permission_name_max_length... OK
-Applying auth.0003_alter_user_email_max_length... OK     
-Applying auth.0004_alter_user_username_opts... OK   
-Applying auth.0005_alter_user_last_login_null... OK
-Applying auth.0006_require_contenttypes_0002... OK
-Applying auth.0007_alter_validators_add_error_messages... OK
-Applying auth.0008_alter_user_username_max_length... OK     
-Applying auth.0009_alter_user_last_name_max_length... OK
-Applying auth.0010_alter_group_name_max_length... OK    
-Applying auth.0011_update_proxy_permissions... OK     
-Applying auth.0012_alter_user_first_name_max_length... OK
-Applying sessions.0001_initial... OK
+    Operations to perform:
+    Apply all migrations: admin, auth, contenttypes, sessions
+    Running migrations:
+    Applying contenttypes.0001_initial... OK
+    Applying auth.0001_initial... OK
+    Applying admin.0001_initial... OK
+    Applying admin.0002_logentry_remove_auto_add... OK     
+    Applying admin.0003_logentry_add_action_flag_choices... OK
+    Applying contenttypes.0002_remove_content_type_name... OK 
+    Applying auth.0002_alter_permission_name_max_length... OK
+    Applying auth.0003_alter_user_email_max_length... OK     
+    Applying auth.0004_alter_user_username_opts... OK   
+    Applying auth.0005_alter_user_last_login_null... OK
+    Applying auth.0006_require_contenttypes_0002... OK
+    Applying auth.0007_alter_validators_add_error_messages... OK
+    Applying auth.0008_alter_user_username_max_length... OK     
+    Applying auth.0009_alter_user_last_name_max_length... OK
+    Applying auth.0010_alter_group_name_max_length... OK    
+    Applying auth.0011_update_proxy_permissions... OK     
+    Applying auth.0012_alter_user_first_name_max_length... OK
+    Applying sessions.0001_initial... OK
 
 ## Running python manage.py migrate performs the following steps:
 
-It checks for any new migration files that haven't been applied yet.
-It analyzes the migration files to determine the changes they represent.
-It modifies the database schema to match the changes described in the migration files.
-It updates the migration history, marking the applied migrations as completed.
+    It checks for any new migration files that haven't been applied yet.
+    It analyzes the migration files to determine the changes they represent.
+    It modifies the database schema to match the changes described in the migration files.
+    It updates the migration history, marking the applied migrations as completed.
 
 ## Run the development server
 
-python manage.py runserver 
+    python manage.py runserver 
 
-Watching for file changes with StatReloader
-Performing system checks...
+    Watching for file changes with StatReloader
+    Performing system checks...
 
-System check identified no issues (0 silenced).
-July 15, 2023 - 10:23:59
-Django version 4.2.3, using settings 'mysite.settings'
-Starting development server at http://127.0.0.1:8000/ 
-Quit the server with CTRL-BREAK.
+    System check identified no issues (0 silenced).
+    July 15, 2023 - 10:23:59
+    Django version 4.2.3, using settings 'mysite.settings'
+    Starting development server at http://127.0.0.1:8000/ 
+    Quit the server with CTRL-BREAK.
 
 5. Django Admin page
 
-## To access Django admin page from your browser 
+### To access Django admin page from your browser 
 
-http://127.0.0.1:8000/admin/
+    http://127.0.0.1:8000/admin/
 
-## First we need to create username and password from command line
+### First we need to create username and password from command line
 
-python manage.py createsuperuser
+    python manage.py createsuperuser
 
-$ python manage.py createsuperuser
-Username (leave blank to use 'rohit'): nixmin
-Email address: rohitsavana18@gmail.com
-Password:
-Password (again):
+    $ python manage.py createsuperuser
+    Username (leave blank to use 'rohit'): nixmin
+    Email address: rohitsavana18@gmail.com
+    Password:
+    Password (again):
 
 6. Creating a new webapp
 
 python manage.py startapp feed
 
-## feed dir 
+### feed dir 
 
-$ ls -l feed/
-total 5
--rw-r--r-- 1 rohit 197121   0 Jul 15 10:55 __init__.py
--rw-r--r-- 1 rohit 197121  66 Jul 15 10:55 admin.py   
--rw-r--r-- 1 rohit 197121 146 Jul 15 10:55 apps.py    
-drwxr-xr-x 1 rohit 197121   0 Jul 15 10:55 migrations 
--rw-r--r-- 1 rohit 197121  60 Jul 15 10:55 models.py  
--rw-r--r-- 1 rohit 197121  63 Jul 15 10:55 tests.py   
--rw-r--r-- 1 rohit 197121  66 Jul 15 10:55 views.py  
+    $ ls -l feed/
+    total 5
+    -rw-r--r-- 1 rohit 197121   0 Jul 15 10:55 __init__.py
+    -rw-r--r-- 1 rohit 197121  66 Jul 15 10:55 admin.py   
+    -rw-r--r-- 1 rohit 197121 146 Jul 15 10:55 apps.py    
+    drwxr-xr-x 1 rohit 197121   0 Jul 15 10:55 migrations 
+    -rw-r--r-- 1 rohit 197121  60 Jul 15 10:55 models.py  
+    -rw-r--r-- 1 rohit 197121  63 Jul 15 10:55 tests.py   
+    -rw-r--r-- 1 rohit 197121  66 Jul 15 10:55 views.py  
 
 models.py: This file defines the data models for your application. Models are Python classes that represent database tables and encapsulate the logic for interacting with the database. You define fields, relationships, and behaviors of your data in this file using Django's model field types and options.
 
@@ -226,38 +227,37 @@ static/: This directory is used to store static files such as CSS, JavaScript, a
 
 migrations/: This directory contains database migration files. When you make changes to your models, Django generates migration files that define how to modify the database schema. These files are automatically created and managed by Django's migration framework.
 
-## Activate feed app
+### Activate feed app
 
-Go to mysite (project) dir and in settings.py and look for INSTALLED_APPS section
-. This is basically a list , add feed in last like below.
+Go to mysite (project) dir and in settings.py and look for INSTALLED_APPS section. This is basically a list add feed in last like below.
 
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "feed",
-]
+    INSTALLED_APPS = [
+        "django.contrib.admin",
+        "django.contrib.auth",
+        "django.contrib.contenttypes",
+        "django.contrib.sessions",
+        "django.contrib.messages",
+        "django.contrib.staticfiles",
+        "feed",
+    ]
 
-## Migrate - To view changes, synchronize app with DB 
+### Migrate - To view changes, synchronize app with DB 
 
-python manage.py migrate
+    python manage.py migrate
 
-## Rum the development server
+### Rum the development server
 
-python manage runserver
+    python manage runserver
 
-$ python manage.py runserver
-Watching for file changes with StatReloader
-Performing system checks...
+    $ python manage.py runserver
+    Watching for file changes with StatReloader
+    Performing system checks...
 
-System check identified no issues (0 silenced).
-July 15, 2023 - 11:32:12
-Django version 4.2.3, using settings 'mysite.settings'
-Starting development server at http://127.0.0.1:8000/ 
-Quit the server with CTRL-BREAK.
+    System check identified no issues (0 silenced).
+    July 15, 2023 - 11:32:12
+    Django version 4.2.3, using settings 'mysite.settings'
+    Starting development server at http://127.0.0.1:8000/ 
+    Quit the server with CTRL-BREAK.
 
 ## If we get conflicts error then follow below steps to remove app.
 
@@ -286,91 +286,91 @@ Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your pro
 
 Model - a model is a Python class that represents a database table. It encapsulates the fields (data attributes) and behaviors (methods) of the data you want to store and manipulate within the database. By defining the model, you can perform various operations such as creating, updating, deleting, and querying the data stored in the corresponding database table. Django's ORM provides a rich set of methods and query APIs to perform these operations, making it easier to work with databases without writing raw SQL queries.
 
-## Go to models.py file in feed app and in create your models section create a Class as Post as below. Basically it is a Table with two columns.
+### Go to models.py file in feed app and in create your models section create a Class as Post as below. Basically it is a Table with two columns.
 
-## Create your models here.
-class Post(models.Model):
-    text = models.CharField(max_length=140, blank=False, null=False)
+### Create your models here.
+
+    class Post(models.Model):
+        text = models.CharField(max_length=140, blank=False, null=False)
 
 
-## Once you save this file Django will automatically reload the development server.
+### Once you save this file Django will automatically reload the development server.
 
-## Then run makemigrations command as below. It will create Tables with two columns in the database( SQLite by default)
+### Then run makemigrations command as below. It will create Tables with two columns in the database( SQLite by default)
 
-python manage.py makemigrations
+    python manage.py makemigrations
 
-$ python manage.py makemigrations
-Migrations for 'feed':
-feed\migrations\0001_initial.py
-    - Create model Post
+    $ python manage.py makemigrations
+    Migrations for 'feed':
+    feed\migrations\0001_initial.py
+        - Create model Post
 
-## This creates a 0001_initial.py in migrations dir of feed app
+### This creates a 0001_initial.py in migrations dir of feed app
 
-## Now run migration command to add model (table) with two columns
+### Now run migration command to add model (table) with two columns
 
-python manage.py migrate
+    python manage.py migrate
 
-$ python manage.py migrate
-Operations to perform:
-Apply all migrations: admin, auth, contenttypes, feed, sessions
-Running migrations:
-No migrations to apply.
+    $ python manage.py migrate
+    Operations to perform:
+    Apply all migrations: admin, auth, contenttypes, feed, sessions
+    Running migrations:
+    No migrations to apply.
 
 ## Now rerun the development server
 
-python manage.py runserver
+    python manage.py runserver
 
 ## This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
 
 Go to admin.py file in feed app dir. In ## Register your models here section add details as below with import too.
 
-from django.contrib import admin
-from .models import Post
+    from django.contrib import admin
+    from .models import Post
 
+    class PostAdmin(admin.ModelAdmin):
+        pass
 
-class PostAdmin(admin.ModelAdmin):
-    pass
-
-
-admin.site.register(Post, PostAdmin)
+    admin.site.register(Post, PostAdmin)
 
 
 8. View - Create View in feed webapp
 
 a view is a Python function or method that receives a web request and returns a web response. Views determine what data to retrieve from the database, how to process it, and which template to use to render the response. A view function takes the incoming request as its argument and typically returns an instance of the HttpResponse class or one of its subclasses.
 
-## Create a urls.py file in feed webapp dir and add below contents.
+### Create a urls.py file in feed webapp dir and add below contents.
 
-from django.urls import path
-from .views import HomePageView
+    from django.urls import path
+    from .views import HomePageView
 
-app_name = "feed"
-urlpatterns = [path("", HomePageView.as_view(), name="index")]
-
-
-## In views.py file add below contents
-
-from django.views.generic import TemplateView
-
-## Create your views here.
-class HomePageView(TemplateView):
-    template_name = "home.html"
+    app_name = "feed"
+    urlpatterns = [path("", HomePageView.as_view(), name="index")]
 
 
-## Finally add below contents into mysite/urls.py file
+### In views.py file add below contents
 
-from django.contrib import admin
-from django.urls import path
-from django.conf.urls import include
+    from django.views.generic import TemplateView
 
-from feed import urls as feed_urls
+### Create your views here.
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", include(feed_urls, namespace="feed")),
+    class HomePageView(TemplateView):
+        template_name = "home.html"
 
 
-## Go back to webpage and refresh it , you will an error - TemplateDoesNotExist at /home.html
+### Finally add below contents into mysite/urls.py file
+
+    from django.contrib import admin
+    from django.urls import path
+    from django.conf.urls import include
+
+    from feed import urls as feed_urls
+
+    urlpatterns = [
+        path("admin/", admin.site.urls),
+        path("", include(feed_urls, namespace="feed")),
+
+
+### Go back to webpage and refresh it , you will an error - TemplateDoesNotExist at /home.html
 
 It looks for this Template in below dirs.
 
@@ -408,27 +408,27 @@ Template filters: Filters allow you to modify the output of variables or apply f
 
 Inheritance and template inheritance: Templates can inherit from a base template and extend its content. This enables reusable templates and a modular approach to building web pages.
 
-## Setting up Templates dir for feed webapp
+### Setting up Templates dir for feed webapp
 
 Go to setting.py in mysite dir. Search for TEMPLATES section and update as below.
 
-TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+    TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
-TEMPLATES = [
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [TEMPLATE_DIR],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-            ],
+    TEMPLATES = [
+        {
+            "BACKEND": "django.template.backends.django.DjangoTemplates",
+            "DIRS": [TEMPLATE_DIR],
+            "APP_DIRS": True,
+            "OPTIONS": {
+                "context_processors": [
+                    "django.template.context_processors.debug",
+                    "django.template.context_processors.request",
+                    "django.contrib.auth.context_processors.auth",
+                    "django.contrib.messages.context_processors.messages",
+                ],
+            },
         },
-    },
-]
+    ]
 
 Also add import os at import section of the file in top. Then go back to page and check again you will see same error but this time dir is different.
 
@@ -439,7 +439,7 @@ django.template.loaders.app_directories.Loader: django-webapp-T1MGwRR1\Lib\site-
 Create a templates dir and in this add home.html file in this add h1 tag with Hello Django!. Now refresh the main page you will see Hello Django! 
 If after refresh it is not working then restart django server.
 
-## How to handle when we have multiple views
+### How to handle when we have multiple views
 
 Create a base.html file with html5 boilerplate and also create home.html page with no content in it.
 Now in home.html file add {% extends "base.html" %} to call base.html content.
@@ -495,8 +495,7 @@ When the child template is rendered, the resulting HTML will be:
 
 Template blocks allow you to define sections of a template that can be customized and overridden in child templates. They provide a way to reuse common template code while allowing flexibility to modify or extend specific sections as needed. This modular approach to template design promotes code reuse, maintainability, and a clean separation of concerns.
 
-
-## Creating template block in base.html file. (title and body blocks)
+### Creating template block in base.html file. (title and body blocks)
 
 <html>
     <head>
@@ -519,7 +518,7 @@ Template blocks allow you to define sections of a template that can be customize
     </body>
 </html>
 
-## Now first extends and then call both title and body block in home.html. blocks are like html tag - title , body etc.
+### Now first extends and then call both title and body block in home.html. blocks are like html tag - title , body etc.
 
 {% extends 'base.html' %}
 {% block title %} Title from home.html {% endblock %}
@@ -529,7 +528,7 @@ Template blocks allow you to define sections of a template that can be customize
     </h2>
 {% endblock %}
 
-## We can also have a default in base.html file. If someone forget to call title block in home.html file.
+### We can also have a default in base.html file. If someone forget to call title block in home.html file.
 
 <title>{% block title %} Default title {% endblock %}</title>
 
