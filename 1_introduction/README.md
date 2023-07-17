@@ -80,7 +80,7 @@ pipenv install --dev installs development dependencies.
 pipenv update updates all packages to their latest compatible versions.
 pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
 
-## Setting up Django for a feed webapp
+Setting up Django for a feed webapp
 
 1. activate your virtual environment and check present working dir
 
@@ -281,22 +281,16 @@ After removing the database tables, you can delete the "feed" app directory from
 
 Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your project's settings.py file. Open the settings.py file and locate the INSTALLED_APPS list. 
 
-
 7. Creating a Model for feed app
 
 Model - a model is a Python class that represents a database table. It encapsulates the fields (data attributes) and behaviors (methods) of the data you want to store and manipulate within the database. By defining the model, you can perform various operations such as creating, updating, deleting, and querying the data stored in the corresponding database table. Django's ORM provides a rich set of methods and query APIs to perform these operations, making it easier to work with databases without writing raw SQL queries.
 
 ### Go to models.py file in feed app and in create your models section create a Class as Post as below. Basically it is a Table with two columns.
 
-### Create your models here.
-
     class Post(models.Model):
         text = models.CharField(max_length=140, blank=False, null=False)
 
-
-### Once you save this file Django will automatically reload the development server.
-
-### Then run makemigrations command as below. It will create Tables with two columns in the database( SQLite by default)
+Once you save this file Django will automatically reload the development server. Then run makemigrations command as below. It will create Tables with two columns in the database( SQLite by default)
 
     python manage.py makemigrations
 
@@ -317,11 +311,11 @@ Model - a model is a Python class that represents a database table. It encapsula
     Running migrations:
     No migrations to apply.
 
-## Now rerun the development server
+### Now rerun the development server
 
     python manage.py runserver
 
-## This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
+### This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
 
 Go to admin.py file in feed app dir. In ## Register your models here section add details as below with import too.
 
