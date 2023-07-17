@@ -82,17 +82,17 @@ pipenv lock generates a lockfile (Pipfile.lock) with exact versions for all inst
 
 Setting up Django for a feed webapp
 
-1. activate your virtual environment and check present working dir
+activate your virtual environment and check present working dir
 
     python -m pipenv shell
 
     pwd
 
-2. Create a Django project (This command create a mysite dir in current dir)
+Create a Django project (This command create a mysite dir in current dir)
 
     django-admin startproject mysite .         
 
-## mysite dir and manage.py file
+mysite dir and manage.py file
 
 The outer mysite/ root directory is a container for your project. Its name doesn’t matter to Django; you can rename it to anything you like.
 manage.py: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in django-admin and manage.py.
@@ -114,7 +114,7 @@ mysite dir
     mysite/asgi.py: An entry-point for ASGI-compatible web servers to serve your project. See How to deploy with ASGI for more details.
     mysite/wsgi.py: An entry-point for WSGI-compatible web servers to serve your project. See How to deploy with WSGI for more details.
 
-3. Run the development server (We can also create alias for below command)
+Run the development server (We can also create alias for below command)
 
     python manage.py runserver
 
@@ -127,11 +127,11 @@ mysite dir
     Starting development server at http://127.0.0.1:8000/ 
     Quit the server with CTRL-BREAK.
 
-## The production server . If you want to specify a different IP address or port number, you can pass them as arguments to the runserver command
+The production server . If you want to specify a different IP address or port number, you can pass them as arguments to the runserver command
 
     python manage.py runserver 0.0.0.0:8000
 
-4. Migrate - To view changes, synchronize app with DB
+Migrate - To view changes, synchronize app with DB
 
 Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
 
@@ -159,14 +159,14 @@ python manage.py migrate
     Applying auth.0012_alter_user_first_name_max_length... OK
     Applying sessions.0001_initial... OK
 
-## Running python manage.py migrate performs the following steps:
+Running python manage.py migrate performs the following steps:
 
     It checks for any new migration files that haven't been applied yet.
     It analyzes the migration files to determine the changes they represent.
     It modifies the database schema to match the changes described in the migration files.
     It updates the migration history, marking the applied migrations as completed.
 
-## Run the development server
+Run the development server
 
     python manage.py runserver 
 
@@ -181,11 +181,11 @@ python manage.py migrate
 
 5. Django Admin page
 
-### To access Django admin page from your browser 
+To access Django admin page from your browser 
 
     http://127.0.0.1:8000/admin/
 
-### First we need to create username and password from command line
+First we need to create username and password from command line
 
     python manage.py createsuperuser
 
@@ -199,7 +199,7 @@ python manage.py migrate
 
 python manage.py startapp feed
 
-### feed dir 
+feed dir 
 
     $ ls -l feed/
     total 5
@@ -227,7 +227,7 @@ static/: This directory is used to store static files such as CSS, JavaScript, a
 
 migrations/: This directory contains database migration files. When you make changes to your models, Django generates migration files that define how to modify the database schema. These files are automatically created and managed by Django's migration framework.
 
-### Activate feed app
+Activate feed app
 
 Go to mysite (project) dir and in settings.py and look for INSTALLED_APPS section. This is basically a list add feed in last like below.
 
@@ -241,11 +241,11 @@ Go to mysite (project) dir and in settings.py and look for INSTALLED_APPS sectio
         "feed",
     ]
 
-### Migrate - To view changes, synchronize app with DB 
+Migrate - To view changes, synchronize app with DB 
 
     python manage.py migrate
 
-### Rum the development server
+Rum the development server
 
     python manage runserver
 
@@ -259,7 +259,7 @@ Go to mysite (project) dir and in settings.py and look for INSTALLED_APPS sectio
     Starting development server at http://127.0.0.1:8000/ 
     Quit the server with CTRL-BREAK.
 
-## If we get conflicts error then follow below steps to remove app.
+If we get conflicts error then follow below steps to remove app.
 
 $ python manage.py startapp feed
 
@@ -299,9 +299,9 @@ Once you save this file Django will automatically reload the development server.
     feed\migrations\0001_initial.py
         - Create model Post
 
-### This creates a 0001_initial.py in migrations dir of feed app
+This creates a 0001_initial.py in migrations dir of feed app
 
-### Now run migration command to add model (table) with two columns
+Now run migration command to add model (table) with two columns
 
     python manage.py migrate
 
@@ -311,11 +311,11 @@ Once you save this file Django will automatically reload the development server.
     Running migrations:
     No migrations to apply.
 
-### Now rerun the development server
+Now rerun the development server
 
     python manage.py runserver
 
-### This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
+This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
 
 Go to admin.py file in feed app dir. In ## Register your models here section add details as below with import too.
 
@@ -332,7 +332,7 @@ Go to admin.py file in feed app dir. In ## Register your models here section add
 
 a view is a Python function or method that receives a web request and returns a web response. Views determine what data to retrieve from the database, how to process it, and which template to use to render the response. A view function takes the incoming request as its argument and typically returns an instance of the HttpResponse class or one of its subclasses.
 
-### Create a urls.py file in feed webapp dir and add below contents.
+Create a urls.py file in feed webapp dir and add below contents.
 
     from django.urls import path
     from .views import HomePageView
@@ -340,18 +340,16 @@ a view is a Python function or method that receives a web request and returns a 
     app_name = "feed"
     urlpatterns = [path("", HomePageView.as_view(), name="index")]
 
-
-### In views.py file add below contents
+In views.py file add below contents
 
     from django.views.generic import TemplateView
 
-### Create your views here.
+Create your views here.
 
     class HomePageView(TemplateView):
         template_name = "home.html"
 
-
-### Finally add below contents into mysite/urls.py file
+Finally add below contents into mysite/urls.py file
 
     from django.contrib import admin
     from django.urls import path
@@ -363,14 +361,10 @@ a view is a Python function or method that receives a web request and returns a 
         path("admin/", admin.site.urls),
         path("", include(feed_urls, namespace="feed")),
 
-
-### Go back to webpage and refresh it , you will an error - TemplateDoesNotExist at /home.html
-
-It looks for this Template in below dirs.
+Go back to webpage and refresh it , you will an error - TemplateDoesNotExist at /home.html. It looks for this Template in below dirs.
 
 django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\admin\templates\home.html
 django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\auth\templates\home.html
-
 
 9. Template - Setting up Templates dir
 
@@ -402,7 +396,7 @@ Template filters: Filters allow you to modify the output of variables or apply f
 
 Inheritance and template inheritance: Templates can inherit from a base template and extend its content. This enables reusable templates and a modular approach to building web pages.
 
-### Setting up Templates dir for feed webapp
+Setting up Templates dir for feed webapp
 
 Go to setting.py in mysite dir. Search for TEMPLATES section and update as below.
 
@@ -433,7 +427,7 @@ django.template.loaders.app_directories.Loader: django-webapp-T1MGwRR1\Lib\site-
 Create a templates dir and in this add home.html file in this add h1 tag with Hello Django!. Now refresh the main page you will see Hello Django! 
 If after refresh it is not working then restart django server.
 
-### How to handle when we have multiple views
+How to handle when we have multiple views
 
 Create a base.html file with html5 boilerplate and also create home.html page with no content in it.
 Now in home.html file add {% extends "base.html" %} to call base.html content.
@@ -489,7 +483,7 @@ When the child template is rendered, the resulting HTML will be:
 
 Template blocks allow you to define sections of a template that can be customized and overridden in child templates. They provide a way to reuse common template code while allowing flexibility to modify or extend specific sections as needed. This modular approach to template design promotes code reuse, maintainability, and a clean separation of concerns.
 
-### Creating template block in base.html file. (title and body blocks)
+Creating template block in base.html file. (title and body blocks)
 
 <html>
     <head>
@@ -512,7 +506,7 @@ Template blocks allow you to define sections of a template that can be customize
     </body>
 </html>
 
-### Now first extends and then call both title and body block in home.html. blocks are like html tag - title , body etc.
+Now first extends and then call both title and body block in home.html. blocks are like html tag - title , body etc.
 
 {% extends 'base.html' %}
 {% block title %} Title from home.html {% endblock %}
@@ -522,7 +516,7 @@ Template blocks allow you to define sections of a template that can be customize
     </h2>
 {% endblock %}
 
-### We can also have a default in base.html file. If someone forget to call title block in home.html file.
+We can also have a default in base.html file. If someone forget to call title block in home.html file.
 
 <title>{% block title %} Default title {% endblock %}</title>
 
