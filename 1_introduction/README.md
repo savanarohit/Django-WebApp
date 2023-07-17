@@ -245,7 +245,7 @@ Migrate - To view changes, synchronize app with DB
 
     python manage.py migrate
 
-Rum the development server
+Run the development server
 
     python manage runserver
 
@@ -285,7 +285,7 @@ Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your pro
 
 Model - a model is a Python class that represents a database table. It encapsulates the fields (data attributes) and behaviors (methods) of the data you want to store and manipulate within the database. By defining the model, you can perform various operations such as creating, updating, deleting, and querying the data stored in the corresponding database table. Django's ORM provides a rich set of methods and query APIs to perform these operations, making it easier to work with databases without writing raw SQL queries.
 
-### Go to models.py file in feed app and in create your models section create a Class as Post as below. Basically it is a Table with two columns.
+Go to models.py file in feed app and in create your models section create a Class as Post as below. Basically it is a Table with two columns.
 
     class Post(models.Model):
         text = models.CharField(max_length=140, blank=False, null=False)
@@ -317,7 +317,7 @@ Now rerun the development server
 
 This new Tables exists but it is not manageable. That is the reason it does not appear in Django admin page. To do this follow below steps.
 
-Go to admin.py file in feed app dir. In ## Register your models here section add details as below with import too.
+Go to admin.py file in feed app dir. In Register your models here section add details as below with import too.
 
     from django.contrib import admin
     from .models import Post
@@ -372,17 +372,16 @@ a template is a text file that defines the structure and presentation of a web p
 
 Here's a basic example of a Django template:
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Website</title>
-</head>
-<body>
-    <h1>Hello, {{ name }}!</h1>
-    <p>Today is {{ date }}</p>
-</body>
-</html>
-
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My Website</title>
+    </head>
+    <body>
+        <h1>Hello, {{ name }}!</h1>
+        <p>Today is {{ date }}</p>
+    </body>
+    </html>
 
 In this example, the template includes HTML markup along with template tags. The {{ name }} and {{ date }} are template variables that will be replaced with actual values when the template is rendered. The rendering process takes place when a view function returns an HTTP response, and Django combines the template with the provided data.
 
@@ -439,30 +438,30 @@ template blocks are a feature that allows you to define sections of a template t
 
 Base Template (base.html):
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{% block title %}My Website{% endblock %}</title>
-</head>
-<body>
-    {% block content %}
-        <h1>Welcome to my website!</h1>
-    {% endblock %}
-</body>
-</html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>{% block title %}My Website{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+            <h1>Welcome to my website!</h1>
+        {% endblock %}
+    </body>
+    </html>
 
 Child Template (child.html):
 
-{% extends 'base.html' %}
+    {% extends 'base.html' %}
 
-{% block title %}
-    My Awesome Website
-{% endblock %}
+    {% block title %}
+        My Awesome Website
+    {% endblock %}
 
-{% block content %}
-    <h1>Welcome to my awesome website!</h1>
-    <p>This website is amazing!</p>
-{% endblock %}
+    {% block content %}
+        <h1>Welcome to my awesome website!</h1>
+        <p>This website is amazing!</p>
+    {% endblock %}
 
 In this example, the base.html template serves as the base template that defines the common structure of the web pages. It contains two template blocks: title and content. The content inside these blocks acts as a placeholder and will be replaced or extended by child templates.
 
@@ -470,55 +469,54 @@ The child.html template extends the base.html template using the {% extends %} t
 
 When the child template is rendered, the resulting HTML will be:
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Awesome Website</title>
-</head>
-<body>
-    <h1>Welcome to my awesome website!</h1>
-    <p>This website is amazing!</p>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>My Awesome Website</title>
+    </head>
+    <body>
+        <h1>Welcome to my awesome website!</h1>
+        <p>This website is amazing!</p>
+    </body>
+    </html>
 
 Template blocks allow you to define sections of a template that can be customized and overridden in child templates. They provide a way to reuse common template code while allowing flexibility to modify or extend specific sections as needed. This modular approach to template design promotes code reuse, maintainability, and a clean separation of concerns.
 
 Creating template block in base.html file. (title and body blocks)
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title %} {% endblock %} </title>  
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        
-        <!--[if lt IE 7]>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>{% block title %} {% endblock %} </title>  
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="">
+        </head>
+        <body>
+            <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="##">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <script src="" async defer></script>
+            <![endif]-->
+            <script src="" async defer></script>
+            
+            {% block body %} {% endblock %}
         
-        {% block body %} {% endblock %}
-    
-    </body>
-</html>
+        </body>
+    </html>
 
 Now first extends and then call both title and body block in home.html. blocks are like html tag - title , body etc.
 
-{% extends 'base.html' %}
-{% block title %} Title from home.html {% endblock %}
-{% block body  %}
-    <h2>
-    Stuff in here from home.html
-    </h2>
-{% endblock %}
+    {% extends 'base.html' %}
+    {% block title %} Title from home.html {% endblock %}
+    {% block body  %}
+        <h2>
+        Stuff in here from home.html
+        </h2>
+    {% endblock %}
 
 We can also have a default in base.html file. If someone forget to call title block in home.html file.
 
-<title>{% block title %} Default title {% endblock %}</title>
+    <title>{% block title %} Default title {% endblock %}</title>
 
 11. Custom page context 
 
