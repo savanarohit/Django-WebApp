@@ -1,4 +1,4 @@
-## Django Web Framework
+# Django Web Framework
 
 Django is a high-level Python web framework that follows the Model-View-Controller (MVC) architectural pattern. It provides a set of tools, libraries, and conventions that simplify the development of web applications. Django is known for its emphasis on simplicity, reusability, and the principle of "Don't Repeat Yourself" (DRY).
 
@@ -286,7 +286,7 @@ Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your pro
 
 Model - a model is a Python class that represents a database table. It encapsulates the fields (data attributes) and behaviors (methods) of the data you want to store and manipulate within the database. By defining the model, you can perform various operations such as creating, updating, deleting, and querying the data stored in the corresponding database table. Django's ORM provides a rich set of methods and query APIs to perform these operations, making it easier to work with databases without writing raw SQL queries.
 
-## Go to models.py file in feed app and in ## Create your models section create a Class as Post as below. Basically it is a Table with two columns.
+## Go to models.py file in feed app and in create your models section create a Class as Post as below. Basically it is a Table with two columns.
 
 ## Create your models here.
 class Post(models.Model):
@@ -301,7 +301,7 @@ python manage.py makemigrations
 
 $ python manage.py makemigrations
 Migrations for 'feed':
-  feed\migrations\0001_initial.py
+feed\migrations\0001_initial.py
     - Create model Post
 
 ## This creates a 0001_initial.py in migrations dir of feed app
@@ -312,9 +312,9 @@ python manage.py migrate
 
 $ python manage.py migrate
 Operations to perform:
-  Apply all migrations: admin, auth, contenttypes, feed, sessions
+Apply all migrations: admin, auth, contenttypes, feed, sessions
 Running migrations:
-  No migrations to apply.
+No migrations to apply.
 
 ## Now rerun the development server
 
