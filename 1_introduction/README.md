@@ -10,7 +10,7 @@ The Model-View-Controller (MVC) pattern is a design pattern commonly used in web
 
 3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
 
-## Creating Virtual Environments for Django using pipenv
+## Creating Virtual Environments for Django using pipenv 
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
 
@@ -41,7 +41,7 @@ For Windows (GitBash prompt) - This creates a new virtual environment for the pr
 
 3. Adding dependencies: To add a package dependency to your project, use the pipenv install command followed by the package name. For example, to install Django, run:
 
-pipenv install django     (This installs Django and automatically updates the Pipfile and Pipfile.lock files, which keep track of your project's dependencies.)
+    pipenv install django     (This installs Django and automatically updates the Pipfile and Pipfile.lock files, which keep track of your project's dependencies.)
 
 For Windows
 
@@ -64,7 +64,7 @@ For Windows
 
 4. Activating the virtual environment: To activate the virtual environment and access the project's shell, run:
 
-pipenv shell        (This command activates the virtual environment and opens a new shell within it)
+    pipenv shell        (This command activates the virtual environment and opens a new shell within it)
 
 For Windows 
 
@@ -135,7 +135,7 @@ Migrate - To view changes, synchronize app with DB
 
 Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
 
-python manage.py migrate
+    python manage.py migrate
 
     Operations to perform:
     Apply all migrations: admin, auth, contenttypes, sessions
@@ -261,7 +261,7 @@ Rum the development server
 
 If we get conflicts error then follow below steps to remove app.
 
-$ python manage.py startapp feed
+    $ python manage.py startapp feed
 
 CommandError: 'feed' conflicts with the name of an existing Python module and cannot be used as an app name. Please try another name.
 
@@ -270,11 +270,11 @@ Locate the root directory of your Django project. This is the directory that con
 Open a command prompt or terminal window and navigate to the root directory of your Django project.
 Once you are in the project's root directory, execute the following command:
 
-python manage.py makemigrations --empty feed
+    python manage.py makemigrations --empty feed
 
 Next, run the migration command to apply the empty migration:
 
-python manage.py migrate
+    python manage.py migrate
 
 This will remove the database tables associated with the "feed" app from the database.
 After removing the database tables, you can delete the "feed" app directory from your project manually.
