@@ -39,7 +39,7 @@ For Windows (GitBash prompt) - This creates a new virtual environment for the pr
     Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
     Creating a Pipfile for this project...
 
-3. Adding dependencies: To add a package dependency to your project, use the pipenv install command followed by the package name. For example, to install Django, run:
+3. Adding dependencies: To add a package dependency to your project, use the pipenv install command followed by the package name.
 
     pipenv install django     # This installs Django and automatically updates the Pipfile and Pipfile.lock files, which keep track of your project's dependencies.
 
