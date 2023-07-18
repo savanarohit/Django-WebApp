@@ -10,17 +10,17 @@ The Model-View-Controller (MVC) pattern is a design pattern commonly used in web
 
 3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
 
-## Creating Virtual Environments, 
+## Creating Virtual Environments:
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
 
-## Installation: 
+Installation: 
 
 You can install Pipenv by running the following command:
 
     pip install pipenv
 
-## Creating a new project: 
+### Creating a new project: 
 
 To start a new project with Pipenv, navigate to the project's directory using the terminal and run the following command:
 
@@ -43,7 +43,7 @@ For Windows (GitBash prompt) - This creates a new virtual environment for the pr
     Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
     Creating a Pipfile for this project...
 
-## Adding dependencies: 
+### Adding dependencies: 
 
 To add a package dependency to your project, use the pipenv install command followed by the package name.
 
@@ -68,7 +68,7 @@ For Windows
     To activate this project's virtualenv, run pipenv shell.
     Alternatively, run a command inside the virtualenv with pipenv run.
 
-## Activating the virtual environment: 
+### Activating the virtual environment: 
 
 To activate the virtual environment and access the project's shell, run:
 
@@ -78,15 +78,15 @@ For Windows
 
     python -m pipenv shell
 
-## Running Python scripts: 
+### Running Python scripts: 
 
 Once inside the Pipenv shell, you can run Python scripts or interact with the installed packages as you would in a regular Python environment.
 
-## Deactivating the virtual environment: 
+### Deactivating the virtual environment: 
 
 To exit the virtual environment and return to your system's default Python environment, use the exit command or press Ctrl + D.
 
-## Managing dependencies: 
+### Managing dependencies: 
 
 Pipenv provides additional commands for managing dependencies. For example:
 
@@ -147,9 +147,11 @@ The production server . If you want to specify a different IP address or port nu
 
     python manage.py runserver 0.0.0.0:8000
 
-Migrate - To view changes, synchronize app with DB
+## Migrate:  
 
 Migrations are a way to manage changes to your database schema over time, such as creating new tables, altering existing tables, or adding new columns. When you make changes to your Django models or create new models, Django generates migration files that contain the instructions for applying those changes to the database. These migration files are stored in the "migrations" directory of your Django app. By running python manage.py migrate, you tell Django to examine the migration files and apply any pending changes to the database. Django keeps track of which migrations have been applied, so it only applies new migrations that haven't been executed yet.
+
+To migrate 
 
     python manage.py migrate
 
@@ -206,8 +208,8 @@ First we need to create username and password from command line
     python manage.py createsuperuser
 
     $ python manage.py createsuperuser
-    Username (leave blank to use 'rohit'): nixmin
-    Email address: rohitsavana18@gmail.com
+    Username (leave blank to use 'username'): username
+    Email address: email_id@gmail.com
     Password:
     Password (again):
 
@@ -277,8 +279,6 @@ Run the development server
 
 ## Remove an app:
 
-If you want to remove feed app follow below steps.
-
 Make sure your Django development server is not running. If it is running, you can stop it by pressing Ctrl + C in the command prompt or terminal where it's running.
 
 Locate the root directory of your Django project. This is the directory that contains the manage.py file.
@@ -345,12 +345,12 @@ Go to admin.py file in feed app dir. In Register your models here section add de
 
     admin.site.register(Post, PostAdmin)
 
-
 ## View: 
 
-Create View in feed webapp
-
 a view is a Python function or method that receives a web request and returns a web response. Views determine what data to retrieve from the database, how to process it, and which template to use to render the response. A view function takes the incoming request as its argument and typically returns an instance of the HttpResponse class or one of its subclasses.
+
+
+Create View in feed webapp
 
 Create a urls.py file in feed webapp dir and add below contents.
 
@@ -388,9 +388,9 @@ django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\auth\templates\home.html
 
 ## Template:
 
-Setting up Templates dir
-
 a template is a text file that defines the structure and presentation of a web page. It is a fundamental component of the Model-View-Controller (MVC) architectural pattern used by Django. Templates allow you to separate the design and layout of your web pages from the Python code that handles the application's logic. Django templates use a syntax called Django Template Language (DTL) or simply template tags. Template tags are enclosed in curly braces ({{ }}) or percent signs ({% %}) and allow you to insert dynamic content, perform logic, iterate over data, and include other templates.
+
+Setting up Templates dir
 
 Here's a basic example of a Django template:
 
