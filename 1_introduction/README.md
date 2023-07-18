@@ -10,17 +10,17 @@ The Model-View-Controller (MVC) pattern is a design pattern commonly used in web
 
 3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
 
-### Creating Virtual Environments, 
+## Creating Virtual Environments, 
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
 
-### Installation: 
+## Installation: 
 
 You can install Pipenv by running the following command:
 
     pip install pipenv
 
-### Creating a new project: 
+## Creating a new project: 
 
 To start a new project with Pipenv, navigate to the project's directory using the terminal and run the following command:
 
@@ -43,7 +43,7 @@ For Windows (GitBash prompt) - This creates a new virtual environment for the pr
     Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
     Creating a Pipfile for this project...
 
-### Adding dependencies: 
+## Adding dependencies: 
 
 To add a package dependency to your project, use the pipenv install command followed by the package name.
 
@@ -68,7 +68,7 @@ For Windows
     To activate this project's virtualenv, run pipenv shell.
     Alternatively, run a command inside the virtualenv with pipenv run.
 
-### Activating the virtual environment: 
+## Activating the virtual environment: 
 
 To activate the virtual environment and access the project's shell, run:
 
@@ -78,15 +78,15 @@ For Windows
 
     python -m pipenv shell
 
-### Running Python scripts: 
+## Running Python scripts: 
 
 Once inside the Pipenv shell, you can run Python scripts or interact with the installed packages as you would in a regular Python environment.
 
-### Deactivating the virtual environment: 
+## Deactivating the virtual environment: 
 
 To exit the virtual environment and return to your system's default Python environment, use the exit command or press Ctrl + D.
 
-### Managing dependencies: 
+## Managing dependencies: 
 
 Pipenv provides additional commands for managing dependencies. For example:
 
@@ -94,7 +94,7 @@ Pipenv provides additional commands for managing dependencies. For example:
     pipenv update                           # updates all packages to their latest compatible versions.
     pipenv lock                             # generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
 
-### Setting up Django for a feed webapp:
+## Setting up Django for a feed webapp:
 
 activate your virtual environment and check present working dir
 
@@ -102,7 +102,7 @@ activate your virtual environment and check present working dir
 
     pwd
 
-### Create a Django project: 
+## Create a Django project: 
 
 This command create a mysite dir in current dir
 
@@ -275,7 +275,7 @@ Run the development server
     Starting development server at http://127.0.0.1:8000/ 
     Quit the server with CTRL-BREAK.
 
-### Remove an app:
+## Remove an app:
 
 If you want to remove feed app follow below steps.
 
