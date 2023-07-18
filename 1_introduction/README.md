@@ -14,11 +14,11 @@ The Model-View-Controller (MVC) pattern is a design pattern commonly used in web
 
 Pipenv: Pipenv is a tool for managing Python project dependencies and virtual environments. It combines the functionality of pip (package installation) and virtualenv (virtual environment creation) into a single tool. Pipenv aims to simplify dependency management by providing a streamlined workflow and automatic environment activation.
 
-1. Installation: You can install Pipenv by running the following command:
+### Installation: You can install Pipenv by running the following command:
 
     pip install pipenv
 
-2. Creating a new project: To start a new project with Pipenv, navigate to the project's directory using the terminal or command prompt and run the following command:
+### Creating a new project: To start a new project with Pipenv, navigate to the project's directory using the terminal or command prompt and run the following command:
 
     pipenv --python 3.11
 
@@ -39,7 +39,7 @@ For Windows (GitBash prompt) - This creates a new virtual environment for the pr
     Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
     Creating a Pipfile for this project...
 
-3. Adding dependencies: To add a package dependency to your project, use the pipenv install command followed by the package name.
+### Adding dependencies: To add a package dependency to your project, use the pipenv install command followed by the package name.
 
     pipenv install django     # This installs Django and automatically updates the Pipfile and Pipfile.lock files, which keep track of your project's dependencies.
 
@@ -62,7 +62,7 @@ For Windows
     To activate this project's virtualenv, run pipenv shell.
     Alternatively, run a command inside the virtualenv with pipenv run.
 
-4. Activating the virtual environment: To activate the virtual environment and access the project's shell, run:
+### Activating the virtual environment: To activate the virtual environment and access the project's shell, run:
 
     pipenv shell        (This command activates the virtual environment and opens a new shell within it)
 
@@ -70,11 +70,11 @@ For Windows
 
     python -m pipenv shell
 
-5. Running Python scripts: Once inside the Pipenv shell, you can run Python scripts or interact with the installed packages as you would in a regular Python environment.
+### Running Python scripts: Once inside the Pipenv shell, you can run Python scripts or interact with the installed packages as you would in a regular Python environment.
 
-6. Deactivating the virtual environment: To exit the virtual environment and return to your system's default Python environment, use the exit command or press Ctrl + D.
+### Deactivating the virtual environment: To exit the virtual environment and return to your system's default Python environment, use the exit command or press Ctrl + D.
 
-7. Managing dependencies: Pipenv provides additional commands for managing dependencies. For example:
+### Managing dependencies: Pipenv provides additional commands for managing dependencies. For example:
 
     pipenv install --dev                    # installs development dependencies.
     pipenv update                           # updates all packages to their latest compatible versions.
