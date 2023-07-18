@@ -279,11 +279,12 @@ Run the development server
 
 If you want to remove feed app follow below steps.
 
-    $ python manage.py startapp feed
-
 Make sure your Django development server is not running. If it is running, you can stop it by pressing Ctrl + C in the command prompt or terminal where it's running.
+
 Locate the root directory of your Django project. This is the directory that contains the manage.py file.
+
 Open a command prompt or terminal window and navigate to the root directory of your Django project.
+
 Once you are in the project's root directory, execute the following command:
 
     python manage.py makemigrations --empty feed
