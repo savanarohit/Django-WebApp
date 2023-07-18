@@ -1,8 +1,8 @@
 # Django Web Framework Introduction
 
-Django is a high-level Python web framework that follows the Model-View-Controller (MVC) architectural pattern. It provides a set of tools, libraries, and conventions that simplify the development of web applications. Django is known for its emphasis on simplicity, reusability, and the principle of "Don't Repeat Yourself" (DRY).
+Django is a high-level Python web framework that follows the Model-View-Controller (MVC) architectural pattern. It provides a set of tools, libraries, and conventions that simplify the development of web applications. Django is known for its emphasis on simplicity, reusability, and the principle of "Don't Repeat Yourself" (DRY). 
 
-The Model-View-Controller (MVC) pattern is a design pattern commonly used in web application development.
+## MVC:
 
 #### Model: Represents data and business logic.
 
