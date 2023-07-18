@@ -20,7 +20,7 @@ You can install Pipenv by running the following command:
 
     pip install pipenv
 
-### Creating a new project: 
+#### Creating a new project: 
 
 To start a new project with Pipenv, navigate to the project's directory using the terminal and run the following command:
 
@@ -43,7 +43,7 @@ For Windows (GitBash prompt) - This creates a new virtual environment for the pr
     Virtualenv location: C:\Users\rohit\.virtualenvs\2_web_development_django-XOwsaMNC
     Creating a Pipfile for this project...
 
-### Adding dependencies: 
+#### Adding dependencies: 
 
 To add a package dependency to your project, use the pipenv install command followed by the package name.
 
@@ -68,7 +68,7 @@ For Windows
     To activate this project's virtualenv, run pipenv shell.
     Alternatively, run a command inside the virtualenv with pipenv run.
 
-### Activating the virtual environment: 
+#### Activating the virtual environment: 
 
 To activate the virtual environment and access the project's shell, run:
 
@@ -78,15 +78,15 @@ For Windows
 
     python -m pipenv shell
 
-### Running Python scripts: 
+#### Running Python scripts: 
 
 Once inside the Pipenv shell, you can run Python scripts or interact with the installed packages as you would in a regular Python environment.
 
-### Deactivating the virtual environment: 
+#### Deactivating the virtual environment: 
 
 To exit the virtual environment and return to your system's default Python environment, use the exit command or press Ctrl + D.
 
-### Managing dependencies: 
+#### Managing dependencies: 
 
 Pipenv provides additional commands for managing dependencies. For example:
 
