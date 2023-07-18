@@ -94,7 +94,7 @@ Pipenv provides additional commands for managing dependencies. For example:
     pipenv update                           # updates all packages to their latest compatible versions.
     pipenv lock                             # generates a lockfile (Pipfile.lock) with exact versions for all installed packages.
 
-## Setting up Django for a feed webapp:
+## Setting up Django:
 
 activate your virtual environment and check present working dir
 
@@ -213,7 +213,7 @@ First we need to create username and password from command line
     Password:
     Password (again):
 
-## Creating a new webapp:
+## Creating an app:
 
 python manage.py startapp feed
 
@@ -277,7 +277,7 @@ Run the development server
     Starting development server at http://127.0.0.1:8000/ 
     Quit the server with CTRL-BREAK.
 
-## Remove an app:
+## Removing an app:
 
 Make sure your Django development server is not running. If it is running, you can stop it by pressing Ctrl + C in the command prompt or terminal where it's running.
 
@@ -299,7 +299,7 @@ After removing the database tables, you can delete the "feed" app directory from
 
 Finally, remove the "feed" app entry from the INSTALLED_APPS setting section in your project's settings.py file. 
 
-## Creating a Model for feed app:
+## Creating a Model:
 
 Model - a model is a Python class that represents a database table. It encapsulates the fields (data attributes) and behaviors (methods) of the data you want to store and manipulate within the database. By defining the model, you can perform various operations such as creating, updating, deleting, and querying the data stored in the corresponding database table. Django's ORM provides a rich set of methods and query APIs to perform these operations, making it easier to work with databases without writing raw SQL queries.
 
@@ -345,10 +345,9 @@ Go to admin.py file in feed app dir. In Register your models here section add de
 
     admin.site.register(Post, PostAdmin)
 
-## View: 
+## Creating a View: 
 
 a view is a Python function or method that receives a web request and returns a web response. Views determine what data to retrieve from the database, how to process it, and which template to use to render the response. A view function takes the incoming request as its argument and typically returns an instance of the HttpResponse class or one of its subclasses.
-
 
 Create View in feed webapp
 
@@ -386,7 +385,7 @@ Go back to webpage and refresh it , you will an error - TemplateDoesNotExist at 
 django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\admin\templates\home.html
 django-webapp-T1MGwRR1\Lib\site-packages\django\contrib\auth\templates\home.html
 
-## Template:
+## Creating a Template:
 
 a template is a text file that defines the structure and presentation of a web page. It is a fundamental component of the Model-View-Controller (MVC) architectural pattern used by Django. Templates allow you to separate the design and layout of your web pages from the Python code that handles the application's logic. Django templates use a syntax called Django Template Language (DTL) or simply template tags. Template tags are enclosed in curly braces ({{ }}) or percent signs ({% %}) and allow you to insert dynamic content, perform logic, iterate over data, and include other templates.
 
@@ -453,7 +452,7 @@ How to handle when we have multiple views
 Create a base.html file with html5 boilerplate and also create home.html page with no content in it.
 Now in home.html file add {% extends "base.html" %} to call base.html content.
 
-## Template blocks:
+## Creating a Template blocks:
 
 template blocks are a feature that allows you to define sections of a template that can be overridden or extended by child templates. Template blocks are used in conjunction with template inheritance to create modular and reusable templates.
 
@@ -539,6 +538,6 @@ We can also have a default in base.html file. If someone forget to call title bl
 
     <title>{% block title %} Default title {% endblock %}</title>
 
-## Custom page context:
+## Creating a Custom page context:
 
 the page context refers to the data that is available to the template when it is rendered. By default, Django provides a context that includes variables and data from the view function or class. However, you can also customize the page context by adding additional data or modifying the existing context. Customizing the page context allows you to pass specific data to the template that is relevant to the current page or view. You can include any Python objects, such as variables, dictionaries, lists, querysets, or model instances, in the page context.
