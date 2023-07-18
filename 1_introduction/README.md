@@ -294,9 +294,10 @@ Next, run the migration command to apply the empty migration:
     python manage.py migrate
 
 This will remove the database tables associated with the "feed" app from the database.
+
 After removing the database tables, you can delete the "feed" app directory from your project manually.
 
-Finally, remove the "feed" app entry from the INSTALLED_APPS setting in your project's settings.py file. Open the settings.py file and locate the INSTALLED_APPS list. 
+Finally, remove the "feed" app entry from the INSTALLED_APPS setting section in your project's settings.py file. 
 
 ## Creating a Model for feed app:
 
