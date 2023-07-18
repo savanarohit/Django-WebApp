@@ -4,11 +4,17 @@ Django is a high-level Python web framework that follows the Model-View-Controll
 
 The Model-View-Controller (MVC) pattern is a design pattern commonly used in web application development.
 
-1. Model: The model represents the data and the business logic of the application. It defines the structure of the data, handles data validation, and interacts with the database or any other data source. In Django, models are typically represented as Python classes that inherit from django.db.models.Model. They define the fields, relationships, and behavior of the data entities in the application.
+Model: Represents data and business logic.
 
-2. View: The view handles the presentation logic and user interaction. It retrieves data from the model and decides how to present it to the user. In Django, views are Python functions or methods that receive HTTP requests, process them, and return HTTP responses. Views can render HTML templates, handle form submissions, authenticate users, and perform other tasks related to generating the appropriate response for a given request.
+It defines the structure of the data, handles data validation, and interacts with the database or any other data source. In Django, models are typically represented as Python classes that inherit from django.db.models.Model. They define the fields, relationships, and behavior of the data entities in the application.
 
-3. Controller: In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
+View: Handles presentation and user interaction.
+
+It retrieves data from the model and decides how to present it to the user. In Django, views are Python functions or methods that receive HTTP requests, process them, and return HTTP responses. Views can render HTML templates, handle form submissions, authenticate users, and perform other tasks related to generating the appropriate response for a given request.
+
+Controller: Handles request processing and updates the model (merged with view in Django).
+
+In the MVC pattern, the controller acts as an intermediary between the model and the view. It receives user input from the view, processes it, and updates the model accordingly. However, in Django, the concept of the controller is merged with the view. Django's view functions or methods often handle both the presentation logic and the business logic, interacting directly with the model and returning the appropriate response.
 
 ## Creating Virtual Environments:
 
