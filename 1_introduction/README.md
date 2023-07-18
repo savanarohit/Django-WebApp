@@ -275,13 +275,11 @@ Run the development server
     Starting development server at http://127.0.0.1:8000/ 
     Quit the server with CTRL-BREAK.
 
-### Conflicts error:
+### Remove an app:
 
-follow below steps to remove feed app:
+If you want to remove feed app follow below steps.
 
     $ python manage.py startapp feed
-
-CommandError: 'feed' conflicts with the name of an existing Python module and cannot be used as an app name. Please try another name.
 
 Make sure your Django development server is not running. If it is running, you can stop it by pressing Ctrl + C in the command prompt or terminal where it's running.
 Locate the root directory of your Django project. This is the directory that contains the manage.py file.
