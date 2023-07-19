@@ -74,7 +74,7 @@ For Windows
     To activate this project's virtualenv, run pipenv shell.
     Alternatively, run a command inside the virtualenv with pipenv run.
 
-#### Activating the virtual environment: 
+#### Activating virtual environment: 
 
 To activate the virtual environment and access the project's shell, run:
 
@@ -105,7 +105,6 @@ Pipenv provides additional commands for managing dependencies. For example:
 activate your virtual environment and check present working dir
 
     python -m pipenv shell
-
     pwd
 
 ## Create a Django project: 
